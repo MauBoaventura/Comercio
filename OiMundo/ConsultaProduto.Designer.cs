@@ -309,7 +309,7 @@
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.Size = new System.Drawing.Size(200, 20);
             this.idTextBox.TabIndex = 2;
-            this.idTextBox.TextChanged += new System.EventHandler(this.IdTextBox_TextChanged);
+            this.idTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EnterActionId);
             // 
             // codBarrasTextBox
             // 
@@ -318,6 +318,7 @@
             this.codBarrasTextBox.Name = "codBarrasTextBox";
             this.codBarrasTextBox.Size = new System.Drawing.Size(200, 20);
             this.codBarrasTextBox.TabIndex = 4;
+            this.codBarrasTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EnterActionCodBarras);
             // 
             // descricaoTextBox
             // 
@@ -326,6 +327,7 @@
             this.descricaoTextBox.Name = "descricaoTextBox";
             this.descricaoTextBox.Size = new System.Drawing.Size(200, 20);
             this.descricaoTextBox.TabIndex = 6;
+            this.descricaoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EnterActionDescricao);
             // 
             // quantidadeTextBox
             // 

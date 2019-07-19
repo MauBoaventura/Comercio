@@ -29,13 +29,28 @@ namespace OiMundo
         private void ConsultaProduto_Load(object sender, EventArgs e)
         {
             // TODO: esta linha de código carrega dados na tabela 'mercadoDataSet.tbProduto'. Você pode movê-la ou removê-la conforme necessário.
-          //  this.tbProdutoTableAdapter.Fill(this.mercadoDataSet.tbProduto);
+            //  this.tbProdutoTableAdapter.Fill(this.mercadoDataSet.tbProduto);
 
         }
 
-        private void IdTextBox_TextChanged(object sender, EventArgs e)
+        private void EnterActionId(object sender, KeyPressEventArgs e)
         {
-           // this.tbProdutoTableAdapter.FillBy(this.mercadoDataSet.tbProduto, System.Convert.ToInt32(idTextBox.Text));
+            if (e.KeyChar == 13)
+                this.tbProdutoTableAdapter.FillBy(this.mercadoDataSet.tbProduto, System.Convert.ToInt32(idTextBox.Text));
+
+        }
+
+        private void EnterActionCodBarras(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                this.tbProdutoTableAdapter.FillByCodBarras(this.mercadoDataSet.tbProduto, (codBarrasTextBox.Text));
+
+        }
+
+        private void EnterActionDescricao(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                this.tbProdutoTableAdapter.FillByDescricao(this.mercadoDataSet.tbProduto, descricaoTextBox.Text);
 
         }
     }
