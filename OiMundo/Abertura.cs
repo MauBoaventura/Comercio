@@ -74,5 +74,10 @@ namespace OiMundo
             ConsultaProduto consultaProduto = new ConsultaProduto();
             consultaProduto.Show();
         }
+
+        private void RelatóriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

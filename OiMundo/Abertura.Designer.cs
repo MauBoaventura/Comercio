@@ -125,7 +125,7 @@
             this.novoToolStripMenuItem,
             this.existenteToolStripMenuItem});
             this.cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
-            this.cadastroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cadastroToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.cadastroToolStripMenuItem.Text = "Cadastrar";
             // 
             // novoToolStripMenuItem
@@ -145,7 +145,7 @@
             // categoriaToolStripMenuItem
             // 
             this.categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
-            this.categoriaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.categoriaToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.categoriaToolStripMenuItem.Text = "Categoria";
             // 
             // estoqueToolStripMenuItem
@@ -160,14 +160,14 @@
             // adicionarToolStripMenuItem
             // 
             this.adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
-            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.adicionarToolStripMenuItem.Text = "Adicionar";
             this.adicionarToolStripMenuItem.Click += new System.EventHandler(this.AdicionarToolStripMenuItem_Click);
             // 
             // consultarToolStripMenuItem
             // 
             this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
-            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.consultarToolStripMenuItem.Text = "Consultar";
             this.consultarToolStripMenuItem.Click += new System.EventHandler(this.ConsultarToolStripMenuItem_Click);
             // 
@@ -176,6 +176,7 @@
             this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
             this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.relatóriosToolStripMenuItem.Text = "Relatórios";
+            this.relatóriosToolStripMenuItem.Click += new System.EventHandler(this.RelatóriosToolStripMenuItem_Click);
             // 
             // sistemaToolStripMenuItem
             // 
