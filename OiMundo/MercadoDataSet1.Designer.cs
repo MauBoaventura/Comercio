@@ -293,6 +293,8 @@ namespace OiMundo {
             
             private global::System.Data.DataColumn columnValidade;
             
+            private global::System.Data.DataColumn columnDataCadastro;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public tbProdutoDataTable() {
@@ -384,6 +386,14 @@ namespace OiMundo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DataCadastroColumn {
+                get {
+                    return this.columnDataCadastro;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -419,7 +429,7 @@ namespace OiMundo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public tbProdutoRow AddtbProdutoRow(string CodBarras, string Descricao, int Quantidade, string PrecoCompra, string PrecoVenda, System.DateTime Validade) {
+            public tbProdutoRow AddtbProdutoRow(string CodBarras, string Descricao, int Quantidade, string PrecoCompra, string PrecoVenda, System.DateTime Validade, System.DateTime DataCadastro) {
                 tbProdutoRow rowtbProdutoRow = ((tbProdutoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -428,7 +438,8 @@ namespace OiMundo {
                         Quantidade,
                         PrecoCompra,
                         PrecoVenda,
-                        Validade};
+                        Validade,
+                        DataCadastro};
                 rowtbProdutoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtbProdutoRow);
                 return rowtbProdutoRow;
@@ -465,6 +476,7 @@ namespace OiMundo {
                 this.columnPrecoCompra = base.Columns["PrecoCompra"];
                 this.columnPrecoVenda = base.Columns["PrecoVenda"];
                 this.columnValidade = base.Columns["Validade"];
+                this.columnDataCadastro = base.Columns["DataCadastro"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -484,6 +496,8 @@ namespace OiMundo {
                 base.Columns.Add(this.columnPrecoVenda);
                 this.columnValidade = new global::System.Data.DataColumn("Validade", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnValidade);
+                this.columnDataCadastro = new global::System.Data.DataColumn("DataCadastro", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataCadastro);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -745,6 +759,22 @@ namespace OiMundo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime DataCadastro {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tabletbProduto.DataCadastroColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'DataCadastro\' na tabela \'tbProduto\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbProduto.DataCadastroColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsCodBarrasNull() {
                 return this.IsNull(this.tabletbProduto.CodBarrasColumn);
             }
@@ -813,6 +843,18 @@ namespace OiMundo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetValidadeNull() {
                 this[this.tabletbProduto.ValidadeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDataCadastroNull() {
+                return this.IsNull(this.tabletbProduto.DataCadastroColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDataCadastroNull() {
+                this[this.tabletbProduto.DataCadastroColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -985,7 +1027,7 @@ namespace OiMundo.MercadoDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[tbProduto] WHERE (([Id] = @Original_Id) AND ((@IsNull_CodBarras = 1 AND [CodBarras] IS NULL) OR ([CodBarras] = @Original_CodBarras)) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)) AND ((@IsNull_Quantidade = 1 AND [Quantidade] IS NULL) OR ([Quantidade] = @Original_Quantidade)) AND ((@IsNull_PrecoCompra = 1 AND [PrecoCompra] IS NULL) OR ([PrecoCompra] = @Original_PrecoCompra)) AND ((@IsNull_PrecoVenda = 1 AND [PrecoVenda] IS NULL) OR ([PrecoVenda] = @Original_PrecoVenda)) AND ((@IsNull_Validade = 1 AND [Validade] IS NULL) OR ([Validade] = @Original_Validade)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [tbProduto] WHERE (([Id] = @Original_Id) AND ((@IsNull_CodBarras = 1 AND [CodBarras] IS NULL) OR ([CodBarras] = @Original_CodBarras)) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)) AND ((@IsNull_Quantidade = 1 AND [Quantidade] IS NULL) OR ([Quantidade] = @Original_Quantidade)) AND ((@IsNull_PrecoCompra = 1 AND [PrecoCompra] IS NULL) OR ([PrecoCompra] = @Original_PrecoCompra)) AND ((@IsNull_PrecoVenda = 1 AND [PrecoVenda] IS NULL) OR ([PrecoVenda] = @Original_PrecoVenda)) AND ((@IsNull_Validade = 1 AND [Validade] IS NULL) OR ([Validade] = @Original_Validade)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CodBarras", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodBarras", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1002,7 +1044,7 @@ namespace OiMundo.MercadoDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Validade", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Validade", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[tbProduto] ([CodBarras], [Descricao], [Quantidade], [PrecoCompra], [PrecoVenda], [Validade]) VALUES (@CodBarras, @Descricao, @Quantidade, @PrecoCompra, @PrecoVenda, @Validade);
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [tbProduto] ([CodBarras], [Descricao], [Quantidade], [PrecoCompra], [PrecoVenda], [Validade]) VALUES (@CodBarras, @Descricao, @Quantidade, @PrecoCompra, @PrecoVenda, @Validade);
 SELECT Id, CodBarras, Descricao, Quantidade, PrecoCompra, PrecoVenda, Validade FROM tbProduto WHERE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CodBarras", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodBarras", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1013,7 +1055,7 @@ SELECT Id, CodBarras, Descricao, Quantidade, PrecoCompra, PrecoVenda, Validade F
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Validade", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Validade", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[tbProduto] SET [CodBarras] = @CodBarras, [Descricao] = @Descricao, [Quantidade] = @Quantidade, [PrecoCompra] = @PrecoCompra, [PrecoVenda] = @PrecoVenda, [Validade] = @Validade WHERE (([Id] = @Original_Id) AND ((@IsNull_CodBarras = 1 AND [CodBarras] IS NULL) OR ([CodBarras] = @Original_CodBarras)) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)) AND ((@IsNull_Quantidade = 1 AND [Quantidade] IS NULL) OR ([Quantidade] = @Original_Quantidade)) AND ((@IsNull_PrecoCompra = 1 AND [PrecoCompra] IS NULL) OR ([PrecoCompra] = @Original_PrecoCompra)) AND ((@IsNull_PrecoVenda = 1 AND [PrecoVenda] IS NULL) OR ([PrecoVenda] = @Original_PrecoVenda)) AND ((@IsNull_Validade = 1 AND [Validade] IS NULL) OR ([Validade] = @Original_Validade)));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [tbProduto] SET [CodBarras] = @CodBarras, [Descricao] = @Descricao, [Quantidade] = @Quantidade, [PrecoCompra] = @PrecoCompra, [PrecoVenda] = @PrecoVenda, [Validade] = @Validade WHERE (([Id] = @Original_Id) AND ((@IsNull_CodBarras = 1 AND [CodBarras] IS NULL) OR ([CodBarras] = @Original_CodBarras)) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)) AND ((@IsNull_Quantidade = 1 AND [Quantidade] IS NULL) OR ([Quantidade] = @Original_Quantidade)) AND ((@IsNull_PrecoCompra = 1 AND [PrecoCompra] IS NULL) OR ([PrecoCompra] = @Original_PrecoCompra)) AND ((@IsNull_PrecoVenda = 1 AND [PrecoVenda] IS NULL) OR ([PrecoVenda] = @Original_PrecoVenda)) AND ((@IsNull_Validade = 1 AND [Validade] IS NULL) OR ([Validade] = @Original_Validade)));
 SELECT Id, CodBarras, Descricao, Quantidade, PrecoCompra, PrecoVenda, Validade FROM tbProduto WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CodBarras", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodBarras", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1048,26 +1090,38 @@ SELECT Id, CodBarras, Descricao, Quantidade, PrecoCompra, PrecoVenda, Validade F
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Id, CodBarras, Descricao, Quantidade, PrecoCompra, PrecoVenda, Validade FR" +
-                "OM dbo.tbProduto";
+                "OM tbProduto WHERE (CodBarras LIKE @Param1)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param1", global::System.Data.SqlDbType.NVarChar, 150, global::System.Data.ParameterDirection.Input, 0, 0, "CodBarras", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        Id, CodBarras, Descricao, Quantidade, PrecoCompra, PrecoVenda, Vali" +
-                "dade\r\nFROM            tbProduto\r\nWHERE        (Id = @Param1)";
+            this._commandCollection[1].CommandText = "SELECT Id, CodBarras, Descricao, Quantidade, PrecoCompra, PrecoVenda, Validade FR" +
+                "OM tbProduto";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param1", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT CodBarras, Descricao, Id, PrecoCompra, PrecoVenda, Quantidade, Validade FR" +
+                "OM tbProduto WHERE (Id = @Param1)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param1", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(MercadoDataSet.tbProdutoDataTable dataTable) {
+        public virtual int FillByCodBarras(MercadoDataSet.tbProdutoDataTable dataTable, string Param1) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((Param1 == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Param1));
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -1079,8 +1133,38 @@ SELECT Id, CodBarras, Descricao, Quantidade, PrecoCompra, PrecoVenda, Validade F
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual MercadoDataSet.tbProdutoDataTable GetData() {
+        public virtual MercadoDataSet.tbProdutoDataTable GetDataByCodBarras(string Param1) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((Param1 == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Param1));
+            }
+            MercadoDataSet.tbProdutoDataTable dataTable = new MercadoDataSet.tbProdutoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int Fill(MercadoDataSet.tbProdutoDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual MercadoDataSet.tbProdutoDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             MercadoDataSet.tbProdutoDataTable dataTable = new MercadoDataSet.tbProdutoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -1091,7 +1175,7 @@ SELECT Id, CodBarras, Descricao, Quantidade, PrecoCompra, PrecoVenda, Validade F
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillBy(MercadoDataSet.tbProdutoDataTable dataTable, int Param1) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Param1));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1105,7 +1189,7 @@ SELECT Id, CodBarras, Descricao, Quantidade, PrecoCompra, PrecoVenda, Validade F
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual MercadoDataSet.tbProdutoDataTable GetDataBy(int Param1) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Param1));
             MercadoDataSet.tbProdutoDataTable dataTable = new MercadoDataSet.tbProdutoDataTable();
             this.Adapter.Fill(dataTable);

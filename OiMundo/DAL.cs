@@ -19,7 +19,10 @@ namespace OiMundo
         {
             string connString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Maurício\\Documents\\Mercado.mdf;Integrated Security=True;Connect Timeout=30";
             objSqlCeConnection = new SqlConnection(connString);
-            Console.WriteLine("Hello World!");
+            //Console.WriteLine("Hello World!");
+
+            // SqlCommand dCmd = new SqlCommand(@"Alter Table dbo.customer ADD DateOfVisit DATETIME NOT NULL DEFAULT(GETDATE());", objSqlCeConnection);
+           // dCmd.ExecuteNonQuery();
         }
 
         public static DAL GetInstance(string connString)
@@ -182,6 +185,30 @@ namespace OiMundo
             }
         }
 
+
+        public void ttt(string sql)
+        {
+            DAL objSqlCeServerDAL = DAL.GetInstance(connString);
+            objSqlCeServerDAL.Open();
+            SqlDataAdapter dAd = new SqlDataAdapter(@"Alter Table dbo.tbProduto ADD DataCadastro DATETIME NOT NULL DEFAULT(GETDATE());", objSqlCeConnection);
+            dAd.SelectCommand.CommandType = CommandType.Text;
+            DataSet dSet = new DataSet();
+            try
+            {
+                dAd.Fill(dSet, "Produtos");
+               // return dSet.Tables["Produtos"];
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                dSet.Dispose();
+                dAd.Dispose();
+                objSqlCeServerDAL.Dispose();
+            }
+        }
     }
 
 }
