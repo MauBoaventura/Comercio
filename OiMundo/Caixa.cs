@@ -25,7 +25,42 @@ namespace OiMundo
 
         private void Caixa_Load(object sender, EventArgs e)
         {
+            textBox5.Text = Convert.ToString(this.valorCaixa);
+        }
 
+        private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pesquisaProduto(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                ListViewItem list = new ListViewItem();
+                list.SubItems.Add("a");
+                list.SubItems.Add("b");
+
+                // Inclui os itens no ListView
+                listView1.Items.Add(list);
+
+            }
+            // Define os itens da lista
         }
     }
 }

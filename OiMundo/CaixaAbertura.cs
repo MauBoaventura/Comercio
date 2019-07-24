@@ -19,7 +19,8 @@ namespace OiMundo
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            Caixa a = new Caixa();
+            double valorAberturaCaixa = Double.Parse(textBox1.Text);
+            Caixa a = new Caixa(valorAberturaCaixa);
             a.Show();
         }
     }

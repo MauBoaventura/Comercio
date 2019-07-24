@@ -52,5 +52,10 @@ namespace OiMundo
                 this.tbProdutoTableAdapter.FillByDescricao(this.mercadoDataSet.tbProduto, descricaoTextBox.Text);
 
         }
+
+        private void IdTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

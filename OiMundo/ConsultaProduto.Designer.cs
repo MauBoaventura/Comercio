@@ -309,6 +309,7 @@
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.Size = new System.Drawing.Size(200, 20);
             this.idTextBox.TabIndex = 2;
+            this.idTextBox.TextChanged += new System.EventHandler(this.IdTextBox_TextChanged);
             this.idTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EnterActionId);
             // 
             // codBarrasTextBox
