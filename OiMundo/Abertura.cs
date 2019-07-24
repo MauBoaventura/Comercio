@@ -34,7 +34,7 @@ namespace OiMundo
 
         private void AbrirCaixaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Caixa caixa = new Caixa();
+            CaixaAbertura caixa = new CaixaAbertura();
             caixa.Show();
         }
 

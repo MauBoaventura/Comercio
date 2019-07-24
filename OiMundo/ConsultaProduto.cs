@@ -19,11 +19,10 @@ namespace OiMundo
 
         private void TbProdutoBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.tbProdutoTableAdapter.FillBy(this.mercadoDataSet.tbProduto, System.Convert.ToInt32(idTextBox.Text));
-            /*this.Validate();
+            this.Validate();
             this.tbProdutoBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.mercadoDataSet);
-            */
+            
         }
 
         private void ConsultaProduto_Load(object sender, EventArgs e)

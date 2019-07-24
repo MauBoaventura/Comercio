@@ -12,15 +12,20 @@ namespace OiMundo
 {
     public partial class Caixa : Form
     {
-        public Caixa()
+        public Caixa(double valor)
         {
             InitializeComponent();
+            this.valorCaixa = valor;
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            Form1 a = new Form1();
-            a.Show();
+           
+        }
+
+        private void Caixa_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

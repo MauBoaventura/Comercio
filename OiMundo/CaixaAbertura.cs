@@ -10,16 +10,17 @@ using System.Windows.Forms;
 
 namespace OiMundo
 {
-    public partial class Form1 : Form
+    public partial class CaixaAbertura : Form
     {
-        public Form1()
+        public CaixaAbertura()
         {
             InitializeComponent();
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-           
+            Caixa a = new Caixa();
+            a.Show();
         }
     }
 }

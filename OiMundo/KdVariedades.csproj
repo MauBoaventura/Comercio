@@ -102,11 +102,11 @@
     <Compile Include="CadastroProdutoExistente.Designer.cs">
       <DependentUpon>CadastroProdutoExistente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Caixa.cs">
+    <Compile Include="CaixaAbertura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Caixa.Designer.cs">
-      <DependentUpon>Caixa.cs</DependentUpon>
+    <Compile Include="CaixaAbertura.Designer.cs">
+      <DependentUpon>CaixaAbertura.cs</DependentUpon>
     </Compile>
     <Compile Include="ConsultaProduto.cs">
       <SubType>Form</SubType>
@@ -115,11 +115,11 @@
       <DependentUpon>ConsultaProduto.cs</DependentUpon>
     </Compile>
     <Compile Include="DAL.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Caixa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Caixa.Designer.cs">
+      <DependentUpon>Caixa.cs</DependentUpon>
     </Compile>
     <Compile Include="MercadoDataSet1.cs">
       <DependentUpon>MercadoDataSet1.xsd</DependentUpon>
@@ -150,14 +150,14 @@
     <EmbeddedResource Include="CadastroProdutoExistente.resx">
       <DependentUpon>CadastroProdutoExistente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Caixa.resx">
-      <DependentUpon>Caixa.cs</DependentUpon>
+    <EmbeddedResource Include="CaixaAbertura.resx">
+      <DependentUpon>CaixaAbertura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultaProduto.resx">
       <DependentUpon>ConsultaProduto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Caixa.resx">
+      <DependentUpon>Caixa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
