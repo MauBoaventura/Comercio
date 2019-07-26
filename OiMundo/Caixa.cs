@@ -12,10 +12,14 @@ namespace OiMundo
 {
     public partial class Caixa : Form
     {
+        private bool primeiraVez;
+        private int contador;
         public Caixa(double valor)
         {
             InitializeComponent();
             this.valorCaixa = valor;
+            this.primeiraVez = true;
+            this.contador = 1;
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -49,12 +53,22 @@ namespace OiMundo
         }
 
         private void pesquisaProduto(object sender, KeyPressEventArgs e)
-        {
+        { 
+            if (primeiraVez)
+            {
+                listView1.Items.Clear(); listView1.Items.Clear();
+                primeiraVez = false;
+            }
             if (e.KeyChar == 13)
             {
-                ListViewItem list = new ListViewItem();
-                list.SubItems.Add("a");
-                list.SubItems.Add("b");
+                DAL dao = new DAL();
+                Produto prod = dao.SelectByCod(cmdSelecionarByCod, textBox1.Text);
+                ListViewItem list = new ListViewItem(contador.ToString());
+                list.SubItems.Add(prod.Descricao);
+                list.SubItems.Add(prod.Quantidade.ToString());
+                list.SubItems.Add(prod.PrecoVenda.ToString());
+                double final = Double.Parse(prod.PrecoVenda)*1;
+                list.SubItems.Add(final.ToString());
 
                 // Inclui os itens no ListView
                 listView1.Items.Add(list);

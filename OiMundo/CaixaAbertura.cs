@@ -22,6 +22,18 @@ namespace OiMundo
             double valorAberturaCaixa = Double.Parse(textBox1.Text);
             Caixa a = new Caixa(valorAberturaCaixa);
             a.Show();
+            this.Close();
+        }
+
+        private void ApertaEnter(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                double valorAberturaCaixa = Double.Parse(textBox1.Text);
+                Caixa a = new Caixa(valorAberturaCaixa);
+                a.Show();
+                this.Close();
+            }
         }
     }
 }

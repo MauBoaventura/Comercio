@@ -7,6 +7,7 @@ using System.Configuration;
 using System.Data.SqlServerCe;
 using System.Data;
 using System.Data.SqlClient;
+using Newtonsoft.Json;
 
 namespace OiMundo
 {
@@ -22,7 +23,7 @@ namespace OiMundo
             //Console.WriteLine("Hello World!");
 
             // SqlCommand dCmd = new SqlCommand(@"Alter Table dbo.customer ADD DateOfVisit DATETIME NOT NULL DEFAULT(GETDATE());", objSqlCeConnection);
-           // dCmd.ExecuteNonQuery();
+            // dCmd.ExecuteNonQuery();
         }
 
         public static DAL GetInstance(string connString)
@@ -47,6 +48,8 @@ namespace OiMundo
                 throw e;
             }
         }
+
+      
 
         public void Dispose()
         {
@@ -161,7 +164,7 @@ namespace OiMundo
             }
         }
 
-        public DataTable SelectById(int Id,string sql)
+        public DataTable SelectById(int Id, string sql)
         {
             DAL objSqlCeServerDAL = DAL.GetInstance(connString);
             objSqlCeServerDAL.Open();
@@ -185,33 +188,47 @@ namespace OiMundo
             }
         }
 
-
-        public void ttt(string sql)
+        public Produto SelectByCod(string cmdSelecionarByCod, string CodBarras)
         {
             DAL objSqlCeServerDAL = DAL.GetInstance(connString);
             objSqlCeServerDAL.Open();
-            SqlDataAdapter dAd = new SqlDataAdapter(@"Alter Table dbo.tbProduto ADD DataCadastro DATETIME NOT NULL DEFAULT(GETDATE());", objSqlCeConnection);
-            dAd.SelectCommand.CommandType = CommandType.Text;
-            DataSet dSet = new DataSet();
+            SqlCommand dCmd = new SqlCommand(cmdSelecionarByCod, objSqlCeConnection);
+            dCmd.CommandType = CommandType.Text;
             try
             {
-                dAd.Fill(dSet, "Produtos");
-               // return dSet.Tables["Produtos"];
+                dCmd.Parameters.AddWithValue("@CodBarras", CodBarras);
+                SqlDataReader reader = dCmd.ExecuteReader();
+
+                reader.Read();
+                int id = reader.GetInt32(0);
+                string cod = reader.GetString(1);
+                string desc = reader.GetString(2);
+                int quant = reader.GetInt32(3);
+                string preco = reader.GetString(5);
+                Produto p=new Produto();
+                p.Id = id;
+                p.CodBarras = cod;
+                p.Descricao = desc;
+                p.Quantidade = quant;
+                p.PrecoVenda = preco;
+                return p;
             }
             catch
             {
-                throw;
+                throw ;
             }
             finally
             {
-                dSet.Dispose();
-                dAd.Dispose();
+                dCmd.Dispose();
                 objSqlCeServerDAL.Dispose();
             }
+            return null;
         }
-    }
 
+    }
 }
+
+
 
 
 

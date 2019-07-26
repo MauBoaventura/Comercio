@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             this.button1 = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -40,6 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.Numero = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Descrição = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Quantidade = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ValorUnitário = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -64,6 +65,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(38, 20);
             this.textBox4.TabIndex = 16;
+            this.textBox4.Text = "1";
             // 
             // label4
             // 
@@ -76,7 +78,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(673, 242);
+            this.textBox3.Location = new System.Drawing.Point(673, 249);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 14;
@@ -84,7 +86,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(620, 245);
+            this.label3.Location = new System.Drawing.Point(620, 252);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 13;
@@ -137,24 +139,30 @@
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Numero,
             this.Descrição,
             this.Quantidade,
             this.ValorUnitário,
             this.Total});
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem5});
+            listViewItem2});
             this.listView1.Location = new System.Drawing.Point(389, 57);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(384, 97);
+            this.listView1.Size = new System.Drawing.Size(420, 97);
             this.listView1.TabIndex = 19;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.ListView1_SelectedIndexChanged);
             // 
+            // Numero
+            // 
+            this.Numero.Text = "Nº";
+            this.Numero.Width = 37;
+            // 
             // Descrição
             // 
             this.Descrição.Text = "Descrição";
-            this.Descrição.Width = 118;
+            this.Descrição.Width = 125;
             // 
             // Quantidade
             // 
@@ -195,7 +203,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(785, 274);
+            this.ClientSize = new System.Drawing.Size(821, 274);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.listView1);
@@ -238,5 +246,12 @@
         private System.Windows.Forms.ColumnHeader Total;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label6;
+
+        private static string cmdSelecionarByCod = "Select * from tbProduto Where CodBarras=@CodBarras";
+        private static string cmdInserir = "Insert Into tbProduto([CodBarras], [Descricao], [Quantidade], [PrecoCompra], [PrecoVenda], [Validade]) VALUES (@CodBarras, @Descricao, @Quantidade, @PrecoCompra, @PrecoVenda, @Validade);";
+        private static string cmdAtualizar = "UPDATE tbProduto SET [CodBarras] = @CodBarras, [Descricao] = @Descricao, [Quantidade] = @Quantidade, [PrecoCompra] = @PrecoCompra, [PrecoVenda] = @PrecoVenda, [Validade] = @Validade WHERE [Id] = @Original_Id;";
+        private static string cmdDeletar = "Delete from tbProduto where Id=@codigo";
+        private static string cmdSelecionarTudo = "Select * from tbProduto";
+        private System.Windows.Forms.ColumnHeader Numero;
     }
 }

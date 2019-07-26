@@ -8,6 +8,7 @@ namespace OiMundo
 {
   public class Produto
     {
+       
         public int Id { get; set; }
         public string CodBarras { get; set; }
         public string Descricao { get; set; }
