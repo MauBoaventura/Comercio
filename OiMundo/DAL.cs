@@ -8,6 +8,7 @@ using System.Data.SqlServerCe;
 using System.Data;
 using System.Data.SqlClient;
 using Newtonsoft.Json;
+using System.Windows.Forms;
 
 namespace OiMundo
 {
@@ -215,7 +216,7 @@ namespace OiMundo
             }
             catch
             {
-                throw ;
+                MessageBox.Show("Produto não cadastrado");
             }
             finally
             {

@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,33 +38,36 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.Numero = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Descrição = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Quantidade = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ValorUnitário = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Total = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.numeroItens = new System.Windows.Forms.NumericUpDown();
+            this.button2 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.mercadoDataSet = new OiMundo.MercadoDataSet();
+            this.mercadoDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tbProdutoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tbProdutoTableAdapter = new OiMundo.MercadoDataSetTableAdapters.tbProdutoTableAdapter();
+            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precoVendaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.numeroItens)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mercadoDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mercadoDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbProdutoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(149, 151);
+            this.button1.Location = new System.Drawing.Point(15, 141);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(138, 23);
             this.button1.TabIndex = 17;
             this.button1.Text = "Cadastrar Item";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(104, 114);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(38, 20);
-            this.textBox4.TabIndex = 16;
-            this.textBox4.Text = "1";
+            this.button1.Click += new System.EventHandler(this.CadastrarProduto_Click);
             // 
             // label4
             // 
@@ -78,7 +80,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(673, 249);
+            this.textBox3.Location = new System.Drawing.Point(848, 249);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 14;
@@ -86,7 +88,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(620, 252);
+            this.label3.Location = new System.Drawing.Point(795, 252);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 13;
@@ -115,7 +117,7 @@
             this.textBox1.Size = new System.Drawing.Size(261, 20);
             this.textBox1.TabIndex = 10;
             this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pesquisaProduto);
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PesquisaProduto);
             // 
             // label1
             // 
@@ -135,49 +137,6 @@
             this.label5.Size = new System.Drawing.Size(106, 39);
             this.label5.TabIndex = 18;
             this.label5.Text = "Caixa";
-            // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Numero,
-            this.Descrição,
-            this.Quantidade,
-            this.ValorUnitário,
-            this.Total});
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
-            this.listView1.Location = new System.Drawing.Point(389, 57);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(420, 97);
-            this.listView1.TabIndex = 19;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.ListView1_SelectedIndexChanged);
-            // 
-            // Numero
-            // 
-            this.Numero.Text = "Nº";
-            this.Numero.Width = 37;
-            // 
-            // Descrição
-            // 
-            this.Descrição.Text = "Descrição";
-            this.Descrição.Width = 125;
-            // 
-            // Quantidade
-            // 
-            this.Quantidade.Text = "Quantidade";
-            this.Quantidade.Width = 84;
-            // 
-            // ValorUnitário
-            // 
-            this.ValorUnitário.Text = "Valor Unitário";
-            this.ValorUnitário.Width = 101;
-            // 
-            // Total
-            // 
-            this.Total.Text = "Total";
-            this.Total.Width = 58;
             // 
             // textBox5
             // 
@@ -199,17 +158,104 @@
             this.label6.Text = "Caixa";
             this.label6.Click += new System.EventHandler(this.Label6_Click);
             // 
+            // numeroItens
+            // 
+            this.numeroItens.Location = new System.Drawing.Point(104, 115);
+            this.numeroItens.Name = "numeroItens";
+            this.numeroItens.Size = new System.Drawing.Size(46, 20);
+            this.numeroItens.TabIndex = 22;
+            this.numeroItens.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(214, 141);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(138, 23);
+            this.button2.TabIndex = 23;
+            this.button2.Text = "Finalizar compra";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Numero,
+            this.descricaoDataGridViewTextBoxColumn,
+            this.quantidadeDataGridViewTextBoxColumn,
+            this.precoVendaDataGridViewTextBoxColumn,
+            this.Total});
+            this.dataGridView1.DataSource = this.tbProdutoBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(407, 28);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(541, 150);
+            this.dataGridView1.TabIndex = 24;
+            // 
+            // mercadoDataSet
+            // 
+            this.mercadoDataSet.DataSetName = "MercadoDataSet";
+            this.mercadoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // mercadoDataSetBindingSource
+            // 
+            this.mercadoDataSetBindingSource.DataSource = this.mercadoDataSet;
+            this.mercadoDataSetBindingSource.Position = 0;
+            // 
+            // tbProdutoBindingSource
+            // 
+            this.tbProdutoBindingSource.DataMember = "tbProduto";
+            this.tbProdutoBindingSource.DataSource = this.mercadoDataSetBindingSource;
+            // 
+            // tbProdutoTableAdapter
+            // 
+            this.tbProdutoTableAdapter.ClearBeforeFill = true;
+            // 
+            // Numero
+            // 
+            this.Numero.DataPropertyName = "N";
+            this.Numero.HeaderText = "Nº";
+            this.Numero.Name = "Numero";
+            // 
+            // descricaoDataGridViewTextBoxColumn
+            // 
+            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
+            this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descricao";
+            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
+            // 
+            // quantidadeDataGridViewTextBoxColumn
+            // 
+            this.quantidadeDataGridViewTextBoxColumn.DataPropertyName = "Quantidade";
+            this.quantidadeDataGridViewTextBoxColumn.HeaderText = "Quantidade";
+            this.quantidadeDataGridViewTextBoxColumn.Name = "quantidadeDataGridViewTextBoxColumn";
+            // 
+            // precoVendaDataGridViewTextBoxColumn
+            // 
+            this.precoVendaDataGridViewTextBoxColumn.DataPropertyName = "PrecoVenda";
+            this.precoVendaDataGridViewTextBoxColumn.HeaderText = "PrecoVenda";
+            this.precoVendaDataGridViewTextBoxColumn.Name = "precoVendaDataGridViewTextBoxColumn";
+            // 
+            // Total
+            // 
+            this.Total.DataPropertyName = "Total";
+            this.Total.HeaderText = "Total";
+            this.Total.Name = "Total";
+            // 
             // Caixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(821, 274);
+            this.ClientSize = new System.Drawing.Size(960, 274);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.numeroItens);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.listView1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label3);
@@ -220,6 +266,11 @@
             this.Name = "Caixa";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Caixa_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numeroItens)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mercadoDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mercadoDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbProdutoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,7 +279,6 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label3;
@@ -239,11 +289,6 @@
         private System.Windows.Forms.Label label5;
 
         private double valorCaixa;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader Descrição;
-        private System.Windows.Forms.ColumnHeader Quantidade;
-        private System.Windows.Forms.ColumnHeader ValorUnitário;
-        private System.Windows.Forms.ColumnHeader Total;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label6;
 
@@ -252,6 +297,17 @@
         private static string cmdAtualizar = "UPDATE tbProduto SET [CodBarras] = @CodBarras, [Descricao] = @Descricao, [Quantidade] = @Quantidade, [PrecoCompra] = @PrecoCompra, [PrecoVenda] = @PrecoVenda, [Validade] = @Validade WHERE [Id] = @Original_Id;";
         private static string cmdDeletar = "Delete from tbProduto where Id=@codigo";
         private static string cmdSelecionarTudo = "Select * from tbProduto";
-        private System.Windows.Forms.ColumnHeader Numero;
+        private System.Windows.Forms.NumericUpDown numeroItens;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descricaoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantidadeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precoVendaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.BindingSource tbProdutoBindingSource;
+        private System.Windows.Forms.BindingSource mercadoDataSetBindingSource;
+        private MercadoDataSet mercadoDataSet;
+        private MercadoDataSetTableAdapters.tbProdutoTableAdapter tbProdutoTableAdapter;
     }
 }
